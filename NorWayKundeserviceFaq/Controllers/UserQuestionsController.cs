@@ -1,11 +1,13 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using NorWayKundeserviceFaq.DataBase;
-using NorWayKundeserviceFaq.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using NorWayKundeserviceFaq.Models;
+using System.Data.Common;
+using System.Linq;
+using System.Web;
+using NorWayKundeserviceFaq.DataBase;
 
 namespace NorWayKundeserviceFaq.Controllers
 {
@@ -34,10 +36,10 @@ namespace NorWayKundeserviceFaq.Controllers
 
         // POST api/Kunde
         [HttpPost]
-        public ActionResult<UserQuestion> Post([FromBody] userquestion inUserQuestion)
+        public ActionResult<UserQuestion> Post([FromBody] UserQuestonDataTransfer inUserQuestion)
         {
 
-            if (ModelState.IsValid)
+            if (ModelState.Isvalid)
             {
                 var userQuestion = new UserQuestion
                 {
