@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row">
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Navn</th>
+          <th scope="col">Spørsmål</th>
+          <th scope="col">Kategori</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let userQuestion of userQuestionList">
+          <td>{{ userQuestion.firstname + ' ' + userQuestion.lastname }}</td>
+          <td>{{ userQuestion.question }}</td>
+          <td>{{ userQuestion.category.name }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

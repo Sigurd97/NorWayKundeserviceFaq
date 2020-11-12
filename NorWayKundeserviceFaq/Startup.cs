@@ -26,6 +26,11 @@ namespace NorWayKundeserviceFaq
             {
                 configuration.RootPath = "ClientApp/dist";
             });
+
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -56,6 +61,13 @@ namespace NorWayKundeserviceFaq
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller}/{action=Index}/{id?}");
+            });
+
+            app.UseSwagger();
+
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v2/swagger.json", "My API V2");
             });
 
             app.UseSpa(spa =>
